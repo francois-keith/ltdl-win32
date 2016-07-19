@@ -3,7 +3,11 @@ include(cmake/base.cmake)
 set(PROJECT_NAME ltdl)
 set(PROJECT_DESCRIPTION "A cmake friendly ltdl for Windows platform")
 set(PROJECT_URL "")
-set(PROJECT_DEBUG_POSTFIX "_d")
+# Comment the debug postfix because
+# 1. I want to compile in release.
+# 2. The debug suffix is attached to the lib name with MSVC with Visual Studio because the 
+# test     IF(DEFINED CMAKE_CONFIGURATION_TYPES) l.148 is not null : it equals Debug; Release; ...
+# SET(PROJECT_DEBUG_POSTFIX "_d")
 project(${PROJECT_NAME} C)
 setup_project(FALSE)
 
